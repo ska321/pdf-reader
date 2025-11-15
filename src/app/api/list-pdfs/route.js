@@ -20,9 +20,15 @@ export async function GET() {
       url: `/uploads/${name}`,
     }));
 
-    return new Response(JSON.stringify(fileUrls), { status: 200 });
+    return new Response(JSON.stringify(fileUrls), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error("List PDFs error:", err);
-    return new Response(JSON.stringify({ error: "Failed to list PDFs" }), { status: 500 });
+    return new Response(
+      JSON.stringify({ error: "Failed to list PDFs" }),
+      { status: 500 }
+    );
   }
 }

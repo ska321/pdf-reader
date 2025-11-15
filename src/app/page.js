@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 
@@ -117,7 +118,7 @@ export default function Home() {
       {/* Header */}
       <header className="flex justify-between items-center mb-8 w-full max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold">My PDF Viewer App</h1>
-        <div>
+        <div className="flex gap-3">
           <label className="cursor-pointer flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
             <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="20" height="20">
               <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM15 3.5V8h4.5L15 3.5z" />
@@ -125,6 +126,13 @@ export default function Home() {
             Upload PDF
             <input type="file" accept="application/pdf" className="hidden" onChange={handleFileChange} />
           </label>
+          <Link href={"/show-all-pdf"} className="cursor-pointer flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="20" height="20">
+              <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM15 3.5V8h4.5L15 3.5z" />
+            </svg>
+            View Pdf
+            <input type="file" accept="application/pdf" className="hidden"  />
+          </Link>
         </div>
       </header>
 

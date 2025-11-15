@@ -26,34 +26,20 @@ export default function ShowAllPdf() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pdfs.map((pdf, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 rounded-2xl p-6 shadow-md flex flex-col justify-between"
-            >
-              {/* PDF Icon */}
+            <div key={index} className="bg-gray-900 rounded-2xl p-6 shadow-md flex flex-col">
               <div className="flex items-center gap-3 mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="red"
-                  viewBox="0 0 24 24"
-                  width="32"
-                  height="32"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" width="32" height="32">
                   <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM15 3.5V8h4.5L15 3.5z" />
                 </svg>
                 <span className="font-semibold text-lg truncate">{pdf.name}</span>
               </div>
-
-              {/* Actions */}
               <div className="flex gap-4 mt-auto">
-                <a
-                  href={pdf.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={`/show-pdf/${encodeURIComponent(pdf.name)}`}
                   className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm"
                 >
                   View
-                </a>
+                </Link>
                 <a
                   href={pdf.url}
                   download
@@ -67,7 +53,6 @@ export default function ShowAllPdf() {
         </div>
       )}
 
-      {/* Back to Home */}
       <div className="mt-12">
         <Link href="/" className="text-blue-400 hover:underline">
           ← Back to Upload Page
