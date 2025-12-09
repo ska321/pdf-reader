@@ -18,7 +18,7 @@ export default function ShowAllPdf() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 sm:p-10">
+    <div className="min-h-screen bg-white text-black p-6 sm:p-10">
       <h1 className="text-3xl font-bold mb-8">All Uploaded PDFs</h1>
 
       {pdfs.length === 0 ? (
@@ -26,7 +26,7 @@ export default function ShowAllPdf() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pdfs.map((pdf, index) => (
-            <div key={index} className="bg-gray-900 rounded-2xl p-6 shadow-md flex flex-col">
+            <div key={index} className="bg-gray-200 rounded-2xl p-6 shadow-md flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" width="32" height="32">
                   <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM15 3.5V8h4.5L15 3.5z" />

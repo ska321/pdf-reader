@@ -114,7 +114,7 @@ export default function Home() {
   }, [pages]);
 
   return (
-    <div className="font-sans min-h-screen p-6 sm:p-10 bg-black text-white">
+    <div className="font-sans min-h-screen p-6 sm:p-10 bg-white text-black">
       {/* Header */}
       <header className="flex justify-between items-center mb-8 w-full max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold">My PDF Viewer App</h1>

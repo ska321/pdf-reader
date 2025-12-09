@@ -93,7 +93,7 @@ export default function ShowPdf() {
   }, [pages]);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6 sm:p-10">
+    <div className="min-h-screen bg-white text-black p-6 sm:p-10">
       <h1 className="text-2xl font-bold mb-6 break-all">
         Viewing: {pdfId}
       </h1>
