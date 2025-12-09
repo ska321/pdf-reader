@@ -142,38 +142,59 @@ export default function Home() {
           <BookOpen className="text-red-600" />
           PDF Reader Pro
         </motion.h1>
-
-        <div className="flex gap-4">
-          <label className="cursor-pointer flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-all shadow-md">
-            <FileUp size={20} />
-            Upload PDF
-            <input type="file" accept="application/pdf" className="hidden" onChange={handleFileChange} />
-          </label>
-
-          <Link
-            href="/show-all-pdf"
-            className="cursor-pointer flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all shadow-md"
-          >
-            <LayoutDashboard size={20} />
-            View PDFs
-          </Link>
-        </div>
       </header>
 
-      {/* HERO SECTION */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="text-center max-w-3xl mx-auto px-6 mt-10 mb-12"
-      >
-        <h2 className="text-4xl font-bold text-zinc-800 mb-4">
-          Fast, Beautiful & Smooth PDF Reader
-        </h2>
-        <p className="text-lg text-zinc-600 leading-relaxed">
-          Upload, preview, zoom, and store your PDF files easily.  
-          This viewer renders every page crisply using PDF.js and adapts to any screen size.
-        </p>
-      </motion.section>
+      {/* BIG HERO SECTION */}
+      {!pdfFile && (
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col justify-center items-center py-24 text-center max-w-4xl mx-auto px-6"
+        >
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-5xl font-extrabold text-zinc-800 mb-2 leading-tight"
+          >
+            A Smarter, Faster & Beautiful Way  
+            <br /> to Read Your PDF Files
+          </motion.h2>
+
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-zinc-600 leading-relaxed max-w-2xl mb-10"
+          >
+            PDF Reader Pro gives you a clean and modern reading experience.  
+            Upload any PDF, preview every page instantly, zoom smoothly, and store your files securely.  
+            Built with Next.js, PDF.js, and Framer Motion for a buttery-smooth interface.
+          </motion.p>
+
+          {/* Centered upload + view buttons */}
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="flex gap-4 mt-4"
+          >
+            <label className="cursor-pointer flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all shadow-md text-lg">
+              <FileUp size={22} />
+              Upload PDF
+              <input type="file" accept="application/pdf" className="hidden" onChange={handleFileChange} />
+            </label>
+
+            <Link
+              href="/show-all-pdf"
+              className="cursor-pointer flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-lg hover:bg-zinc-900 transition-all shadow-md text-lg"
+            >
+              <LayoutDashboard size={22} />
+              View Library
+            </Link>
+          </motion.div>
+        </motion.section>
+      )}
 
       {/* MAIN */}
       <main className="flex flex-col items-center w-full">
@@ -205,11 +226,7 @@ export default function Home() {
               Submit PDF
             </motion.button>
           </motion.div>
-        ) : (
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-400 text-lg">
-            No PDF uploaded yet.
-          </motion.p>
-        )}
+        ) : null}
 
         {pdfUrl && (
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6 text-green-600 text-lg">
@@ -222,7 +239,7 @@ export default function Home() {
       </main>
 
       <footer className="mt-20 py-6 text-center text-sm text-zinc-500">
-        Made by ❤️ Soumyajit Bhowmik
+        Made with ❤️ using Next.js, PDF.js & Framer Motion.
       </footer>
     </div>
   );
